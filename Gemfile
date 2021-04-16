@@ -5,7 +5,7 @@ ruby '3.0.1'
 gem 'mini_racer', platforms: :ruby
 
 # Line bot用
-gem 'line-bot' # line messaging APIを利用するためのgem
+gem 'line-bot-api', '~> 1.19'
 gem 'liff_selector' # liff appを管理するgem
 # 環境変数を管理するgem
 gem 'dotenv-rails'   
