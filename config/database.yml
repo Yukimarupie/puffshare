@@ -12,10 +12,15 @@
 default: &default
   adapter: mysql2
   encoding: utf8mb4
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV.fetch('MYSQL_USERNAME') { 'root' } %>
-  password: <%= ENV.fetch('MYSQL_PASSWORD') { 'password' } %>
-  host: <%= ENV.fetch('MYSQL_HOST') { 'db' } %>
+  #pool=影分身でいっぱい並行して処理するやつ。アプリケーションサーバーの分野。
+  # pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # username: <%= ENV.fetch('MYSQL_USERNAME') { 'root' } %>
+  # password: <%= ENV.fetch('MYSQL_PASSWORD') { 'password' } %>
+  # host: <%= ENV.fetch('MYSQL_HOST') { 'db' } %>
+  pool: <%= ENV["RAILS_MAX_THREADS"] %>
+  username: <%= ENV['MYSQL_USERNAME'] %>
+  password: <%= ENV['MYSQL_PASSWORD'] %>
+  host: <%= ENV['MYSQL_HOST'] %>
 
 development:
   <<: *default
@@ -51,5 +56,6 @@ test:
 production:
   <<: *default
   database: app_production
-  username: app
-  password: <%= ENV['APP_DATABASE_PASSWORD'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  host: <%= ENV['DB_HOSTNAME'] %>

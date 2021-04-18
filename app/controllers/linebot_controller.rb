@@ -1,6 +1,6 @@
 class LinebotController < ApplicationController
     require 'sinatra'
-    require 'line/bot'
+    require 'line/bot' # gem 'line-bot-api'を使えるように宣言
 
     def client
     @client ||= Line::Bot::Client.new { |config|
