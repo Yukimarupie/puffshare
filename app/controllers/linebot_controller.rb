@@ -29,27 +29,48 @@ class LinebotController < ApplicationController
                               "contents": [
                                 {
                                   "type": "bubble",
-                                  "hero": {
-                                    "type": "image",
-                                    "size": "full",
-                                    "aspectRatio": "20:13",
-                                    "aspectMode": "cover",
-                                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_5_carousel.png"
-                                  }
+                                  "body": {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "spacing": "sm",
+                                    "contents": [
+                                      {
+                                        "type": "text",
+                                        "text": "Arm Chair, White",
+                                        "wrap": true,
+                                        "weight": "bold",
+                                        "size": "xl"
+                                      },
+                                      {
+                                        "type": "box",
+                                        "layout": "baseline",
+                                        "contents": []
+                                      }
+                                    ]
+                                  },
                                 },
                                 {
                                   "type": "bubble",
-                                  "hero": {
-                                    "type": "image",
-                                    "size": "full",
-                                    "aspectRatio": "20:13",
-                                    "aspectMode": "cover",
-                                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/fx/01_6_carousel.png"
+                                  "body": {
+                                    "type": "box",
+                                    "layout": "vertical",
+                                    "spacing": "sm",
+                                    "contents": [
+                                      {
+                                        "type": "button",
+                                        "flex": 1,
+                                        "gravity": "center",
+                                        "action": {
+                                          "type": "uri",
+                                          "label": "See more",
+                                          "uri": "https://linecorp.com"
+                                        }
+                                      }
+                                    ]
                                   }
                                 }
                               ]
-                            }
-                        )
+                            }                        )
 
                         else client.reply_message(
                         event['replyToken'],
