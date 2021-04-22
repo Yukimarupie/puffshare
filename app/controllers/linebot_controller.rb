@@ -31,47 +31,46 @@ class LinebotController < ApplicationController
                                   "type": "bubble",
                                   "body": {
                                     "type": "box",
-                                    "layout": "vertical",
-                                    "spacing": "sm",
+                                    "layout": "horizontal",
                                     "contents": [
                                       {
-                                        "type": "text",
-                                        "text": "Arm Chair, White",
-                                        "wrap": true,
-                                        "weight": "bold",
-                                        "size": "xl"
-                                      },
-                                      {
                                         "type": "box",
-                                        "layout": "baseline",
-                                        "contents": []
+                                        "layout": "horizontal",
+                                        "contents": [
+                                          {
+                                            "type": "text",
+                                            "text": "カルーセル",
+                                            "color": "#000000"
+                                          }
+                                        ]
                                       }
                                     ]
-                                  }
+                                  },
+                                  "size": "nano"
                                 },
                                 {
                                   "type": "bubble",
+                                  "size": "nano",
                                   "body": {
                                     "type": "box",
                                     "layout": "vertical",
-                                    "spacing": "sm",
                                     "contents": [
                                       {
-                                        "type": "button",
-                                        "flex": 1,
-                                        "gravity": "center",
-                                        "action": {
-                                          "type": "message",
-                                          "label": "action",
-                                          "text": "hello"
-                                        }
+                                        "type": "box",
+                                        "layout": "horizontal",
+                                        "contents": [
+                                          {
+                                            "type": "text",
+                                            "text": "動いて〜",
+                                            "color": "#5D727F"
+                                          }
+                                        ]
                                       }
                                     ]
                                   }
                                 }
                               ]
                             }
-                          
                           )
 
                         else client.reply_message(
