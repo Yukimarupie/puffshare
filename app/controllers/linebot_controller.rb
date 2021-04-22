@@ -47,7 +47,7 @@ class LinebotController < ApplicationController
                                         "contents": []
                                       }
                                     ]
-                                  },
+                                  }
                                 },
                                 {
                                   "type": "bubble",
@@ -61,16 +61,18 @@ class LinebotController < ApplicationController
                                         "flex": 1,
                                         "gravity": "center",
                                         "action": {
-                                          "type": "uri",
-                                          "label": "See more",
-                                          "uri": "https://linecorp.com"
+                                          "type": "message",
+                                          "label": "action",
+                                          "text": "hello"
                                         }
                                       }
                                     ]
                                   }
                                 }
                               ]
-                            }                        )
+                            }
+                          
+                          )
 
                         else client.reply_message(
                         event['replyToken'],
