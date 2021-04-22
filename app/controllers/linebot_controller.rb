@@ -35,16 +35,11 @@ class LinebotController < ApplicationController
                         event['replyToken'],
                         {
                           type: 'text',
-                          text: 'すみません。よくわかりません…'
+                          text: 'メッセージありがとうございます！'
                         }
                       )
                     end
-                    
-                # message = {
-                #     type: 'text',
-                #     text: event.message['text']
-                # }
-                # client.reply_message(event['replyToken'], message)
+
                 end
             end
         end
