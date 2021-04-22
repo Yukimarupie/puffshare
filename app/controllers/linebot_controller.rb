@@ -21,14 +21,12 @@ class LinebotController < ApplicationController
             when Line::Bot::Event::Message
                 case event.type
                 when Line::Bot::Event::MessageType::Text
-                    if event.message['text'].include?('使い方を確認する')
+                    if event.message['text'].include?('使い方')
                         client.reply_message(
                             event['replyToken'],
                             {
                               type: 'text',
-                              text: '使い方が変えるはず'
-                            #   altText: 'ぱふシェアの使い方の説明です。',
-                            #   contents: set_carousel(response['hotels'])
+                              text: '使い方のフレックスメッセージをカルーセルで表示したい'
                             }
                           )
                         else client.reply_message(
