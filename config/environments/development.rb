@@ -75,5 +75,8 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   #ngrok用に追加 21/04/18 by yuki
-  config.hosts << '.ngrok.io'
+  # config.hosts << '.ngrok.io'
+
+  #grok用に追加 セキュリティを無効化する為 21/04/22 by yuki
+  config.hosts.clear
 end
