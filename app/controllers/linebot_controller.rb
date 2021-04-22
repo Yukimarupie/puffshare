@@ -18,16 +18,35 @@ class LinebotController < ApplicationController
     
         events.each do |event|
         case event
-        when Line::Bot::Event::Message
-            case event.type
-            when Line::Bot::Event::MessageType::Text
-            message = {
-                type: 'text',
-                text: event.message['text']
-            }
-            client.reply_message(event['replyToken'], message)
+            when Line::Bot::Event::Message
+                case event.type
+                when Line::Bot::Event::MessageType::Text
+                    if event.message['text'].include?('使い方を確認する')
+                        client.reply_message(
+                            event['replyToken'],
+                            {
+                              type: 'text',
+                              text: '使い方が変えるはず'
+                            #   altText: 'ぱふシェアの使い方の説明です。',
+                            #   contents: set_carousel(response['hotels'])
+                            }
+                          )
+                        else client.reply_message(
+                        event['replyToken'],
+                        {
+                          type: 'text',
+                          text: 'すみません。よくわかりません…'
+                        }
+                      )
+                    end
+                    
+                # message = {
+                #     type: 'text',
+                #     text: event.message['text']
+                # }
+                # client.reply_message(event['replyToken'], message)
+                end
             end
-        end
         end
         # 返信に成功した場合のステータスコード200を返すokを指定
         head :ok
@@ -37,9 +56,13 @@ class LinebotController < ApplicationController
     # クラス外からはアクセスできないことを表すアクセス修子privateで定義でok
     def client
         @client ||= Line::Bot::Client.new { |config|
+        # ||=は左辺がnilやfalseの場合、右辺を代入するという意味
         config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
         config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
         }
     end
-    # ||=は左辺がnilやfalseの場合、右辺を代入するという意味
+
+    # def set_carousel
+
+    
 end
