@@ -26,55 +26,43 @@ class LinebotController < ApplicationController
                             event['replyToken'],
                             {
                             type: 'flex',
-                            altText: '宿泊検索の結果です。',
+                            altText: 'LINEアプリ『ぱふシェア』の使い方の説明です。',
                             contents:
-                              {
-                                "type": "carousel",
-                                "contents": [
-                                  {
-                                    "type": "bubble",
-                                    "body": {
-                                      "type": "box",
-                                      "layout": "horizontal",
-                                      "contents": [
-                                        {
-                                          "type": "box",
-                                          "layout": "horizontal",
-                                          "contents": [
-                                            {
-                                              "type": "text",
-                                              "text": "カルーセル",
-                                              "color": "#000000"
-                                            }
-                                          ]
-                                        }
-                                      ]
-                                    },
-                                    "size": "nano"
-                                  },
-                                  {
-                                    "type": "bubble",
-                                    "size": "nano",
-                                    "body": {
-                                      "type": "box",
-                                      "layout": "vertical",
-                                      "contents": [
-                                        {
-                                          "type": "box",
-                                          "layout": "horizontal",
-                                          "contents": [
-                                            {
-                                              "type": "text",
-                                              "text": "動いて〜",
-                                              "color": "#5D727F"
-                                            }
-                                          ]
-                                        }
-                                      ]
-                                    }
+                            {
+                              "type": "carousel",
+                              "contents": [
+                                {
+                                  "type": "bubble",
+                                  "size": "micro",
+                                  "hero": {
+                                    "type": "image",
+                                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip10.jpg",
+                                    "size": "full",
+                                    "aspectMode": "cover"
                                   }
-                                ]
-                              }
+                                },
+                                {
+                                  "type": "bubble",
+                                  "size": "micro",
+                                  "hero": {
+                                    "type": "image",
+                                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip11.jpg",
+                                    "size": "full",
+                                    "aspectMode": "cover"
+                                  }
+                                },
+                                {
+                                  "type": "bubble",
+                                  "size": "micro",
+                                  "hero": {
+                                    "type": "image",
+                                    "url": "https://scdn.line-apps.com/n/channel_devcenter/img/flexsnapshot/clip/clip12.jpg",
+                                    "size": "full",
+                                    "aspectMode": "cover"
+                                  }
+                                }
+                              ]
+                            }
                             }
                           )
 
@@ -82,7 +70,7 @@ class LinebotController < ApplicationController
                         event['replyToken'],
                         {
                           type: 'text',
-                          text: 'メッセージありがとうございます！'
+                          text: 'メッセージありがとうございます:))'
                         }
                       )
                     end
