@@ -25,51 +25,56 @@ class LinebotController < ApplicationController
                         client.reply_message(
                             event['replyToken'],
                             {
-                              "type": "carousel",
-                              "contents": [
-                                {
-                                  "type": "bubble",
-                                  "body": {
-                                    "type": "box",
-                                    "layout": "horizontal",
-                                    "contents": [
-                                      {
-                                        "type": "box",
-                                        "layout": "horizontal",
-                                        "contents": [
-                                          {
-                                            "type": "text",
-                                            "text": "カルーセル",
-                                            "color": "#000000"
-                                          }
-                                        ]
-                                      }
-                                    ]
+                            type: 'flex',
+                            altText: '宿泊検索の結果です。',
+                            contents:
+                              {
+                                "type": "carousel",
+                                "contents": [
+                                  {
+                                    "type": "bubble",
+                                    "body": {
+                                      "type": "box",
+                                      "layout": "horizontal",
+                                      "contents": [
+                                        {
+                                          "type": "box",
+                                          "layout": "horizontal",
+                                          "contents": [
+                                            {
+                                              "type": "text",
+                                              "text": "カルーセル",
+                                              "color": "#000000"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    },
+                                    "size": "nano"
                                   },
-                                  "size": "nano"
-                                },
-                                {
-                                  "type": "bubble",
-                                  "size": "nano",
-                                  "body": {
-                                    "type": "box",
-                                    "layout": "vertical",
-                                    "contents": [
-                                      {
-                                        "type": "box",
-                                        "layout": "horizontal",
-                                        "contents": [
-                                          {
-                                            "type": "text",
-                                            "text": "動いて〜",
-                                            "color": "#5D727F"
-                                          }
-                                        ]
-                                      }
-                                    ]
+                                  {
+                                    "type": "bubble",
+                                    "size": "nano",
+                                    "body": {
+                                      "type": "box",
+                                      "layout": "vertical",
+                                      "contents": [
+                                        {
+                                          "type": "box",
+                                          "layout": "horizontal",
+                                          "contents": [
+                                            {
+                                              "type": "text",
+                                              "text": "動いて〜",
+                                              "color": "#5D727F"
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
                                   }
-                                }
-                              ]
+                                ]
+                              }
                             }
                           )
 
