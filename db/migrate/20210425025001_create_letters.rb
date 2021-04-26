@@ -5,7 +5,7 @@ class CreateLetters < ActiveRecord::Migration[6.1]
       t.string :send_to, null: false
       t.text :discription, null: false
       t.datetime :create_date, null: false
-      t.string :api_status, defalut: 'success'
+      t.string :api_status, null: false
 
       t.timestamps
     end
