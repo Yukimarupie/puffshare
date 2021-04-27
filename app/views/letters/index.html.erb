@@ -1,3 +1,26 @@
 <h1>indexページ</h1>
 
 <%= link_to 'お手紙を書く', new_letter_path, class: 'btn' %>
+
+
+<table>
+	<tbody>
+		<tr>
+			<th>受信内容</th>
+			<th>送ってくれた人</th>
+      <th>受信日</th>
+		</tr>
+    <% @letters.each do |letter| %>
+		<tr>
+			<td><%= letter.description  %></td>
+			<td><%= letter.send_by  %></td>
+      <td><%= letter.created_at  %></td>
+		</tr>
+    <% end %>
+
+	</tbody>
+</table>
+
+
+  
+  
