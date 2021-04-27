@@ -5,6 +5,10 @@
 <br>
 
 <%= form_with model: @letter, local: true do |f| %>
+  <%= f.text_field :send_by, placeholder: "送信元" %>
+  <%= f.text_field :send_to, placeholder: "送信先" %>
+  <%= f.select :api_status, [["送信中", "sending"], ["送信成功", "success"], ["送信失敗", "failure"]] ,class:"form-control" %>
+
   <%= f.text_area :description, row: 100, placeholder: "手紙をここに入力してね" %>
 
   <%= f.submit "送信する" %>
