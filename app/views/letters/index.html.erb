@@ -1,7 +1,12 @@
 <h1>indexページ</h1>
 
 <%= link_to 'お手紙を書く', new_letter_path, class: 'btn' %>
-
+<br>
+<p>受信ボックスが標準で表示される仕様。</p>
+<p>送信した手紙も、できれば表示される様にしたい。タブ選択で。</p>
+<p>下書き中のみ編集機能を、受信したもののみ削除機能？これはいらないかな<div class=""></div></p>
+<p></p>
+<p></p>
 
 <table>
 	<tbody>
@@ -12,12 +17,11 @@
 		</tr>
     <% @letters.each do |letter| %>
 		<tr>
-			<td><%= letter.description  %></td>
+			<td><%= link_to letter.description, letter_path(letter) %></td>
 			<td><%= letter.send_by  %></td>
       <td><%= letter.created_at  %></td>
 		</tr>
     <% end %>
-
 	</tbody>
 </table>
 

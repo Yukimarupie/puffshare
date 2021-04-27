@@ -4,3 +4,21 @@
 ここが、手紙のidを取得して、クリックされたら詳細がみれるページになります
 
 <%= @letters %>
+
+
+<table>
+	<tbody>
+		<tr>
+			<th>手紙のID</th>
+			<th>送ってくれた人</th>
+      <th>受信日</th>
+		</tr>
+		<tr>
+			<td><%= @letter.id %></td>
+			<td><%= @letter.send_by  %></td>
+      <td><%= @letter.created_at  %></td>
+		</tr>
+	</tbody>
+</table>
+
+<%= @letter.description %>
