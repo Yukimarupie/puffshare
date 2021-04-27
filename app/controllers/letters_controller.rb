@@ -8,7 +8,7 @@ class LettersController < ApplicationController
   end
 
   def new
-    @letter = Letter.new(letter_params)
+    @letter = Letter.new
   end
 
   def create
@@ -20,7 +20,7 @@ class LettersController < ApplicationController
   private
 
   def letter_params
-    params.require(:letter).permit(:discription, :send_by, :send_to)
+    params.require(:letter).permit(:description, :send_by, :send_to)
   end
 
 end

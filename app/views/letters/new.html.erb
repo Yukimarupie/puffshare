@@ -4,6 +4,10 @@
 ここで手紙を描ける様になります
 <br>
 
-  
+<%= form_with model: @letter, local: true do |f| %>
+  <%= f.text_area :description, row: 100, placeholder: "手紙をここに入力してね" %>
+
+  <%= f.submit "送信する" %>
+<% end %>
 
 <%= link_to 'メールボックスに戻る', letters_path, class: 'btn' %>
