@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // 他のメソッドを実行できるようになるために初期化
   liff.init({
-    liffId: "1655861824-xLoVRAkl"
+    liffId: process.env.LIFF_ID
   })
     // ログイン処理
     .then(() => {
@@ -45,9 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
               const DomP = document.getElementById('-js-user-name');
               // 【USER NAME】innerHTMLでpElement2に格納されたp要素の中に、指定テキストを入れ込む
               DomP.innerHTML = `こんにちは${name}さん`;
-
+              //【PROFILE IMG】
               const DomImg = document.getElementsByClassName("-js-user-icon");
-              DomImg.src = `${icon}`;
+              //クラスで取得する際は、引数をつけてインデックスを指定してあげて入れ込む
+              DomImg[0].src = `${icon}`;
 
             })
         })

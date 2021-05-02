@@ -56,7 +56,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'line-bot-api', '~> 1.19'
 
 # 環境変数を管理するgem
-gem 'dotenv-rails'   
+gem 'dotenv-rails'
+# JS用
+gem 'dotenv'
 
 # liff appを管理するgem
 # gem 'liff_selector' 
