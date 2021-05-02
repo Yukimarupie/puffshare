@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
               // 【USER NAME】innerHTMLでpElement2に格納されたp要素の中に、指定テキストを入れ込む
               DomP.innerHTML = `こんにちは${name}さん`;
 
-              const DomImg = document.getElementById("-js-user-icon");
+              const DomImg = document.getElementsByClassName("-js-user-icon");
               DomImg.src = `${icon}`;
 
             })
