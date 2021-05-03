@@ -1,6 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
+function loginModule() {
   // 他のメソッドを実行できるよう初期化
   liff.init({
     liffId: process.env.LIFF_ID
@@ -53,4 +51,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     })
 
-})
+}
+
+module.exports = loginModule;
+
+
+
+//　別ファイルで呼び出したい時はこんな感じ？？↓
+
+// const myModule = require('loginModule');
+
+// const loginModuleInstance = new loginModule();
+// console.log(loginModuleInstance);
