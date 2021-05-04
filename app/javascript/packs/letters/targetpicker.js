@@ -1,7 +1,7 @@
 // 参考: https://qiita.com/chuck0523/items/1868a4c04ab4d8cdfb23 cmd+F=CommonJS
 //　別ファイルで呼び出したい時はこんな感じ？？↓　
 document.addEventListener('DOMContentLoaded', () => {
-  const liffModule = require('loginModule');
+  const liffModule = require('./module_test');
   const loginModuleInstance = new liffModule();
   console.log(loginModuleInstance); //ログイン処理とユーザー情報の表示の呼び出し
 
