@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     line_user_id = JSON.parse(res.body)["sub"]
     user = User.find_by(line_user_id: line_user_id)
     if user.nil?
+      # binding.pry
       user = User.create(line_user_id: line_user_id)
       session[:user_id] = user.id
       render :json => user

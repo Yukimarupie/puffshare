@@ -1,5 +1,8 @@
+// import liff from '@line/liff';
+
 document.addEventListener('DOMContentLoaded', () => {
-  const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+  // const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
   // 他のメソッドを実行できるよう初期化
   liff.init({
@@ -17,8 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     // idTokenからユーザーIDを取得し、userテーブルに保存する処理
     .then(() => {
+      const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
       const idToken = liff.getIDToken()
       const body = `idToken=${idToken}` //ここでbodyにidTokenを入れ込んで
+      // console.log(body)
       const request = new Request('/users', {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8',
@@ -27,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         method: 'POST',
         body: body //ここで格納してRailsのusersコントローラに投げる
       });
-
+      console.log(request);
       // liff.getIDToken()で取得したIDTokenの情報をfetchメソッドを使ってRailsに渡す
       fetch(request)
         .then(response => response.json())
