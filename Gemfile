@@ -58,7 +58,8 @@ gem 'line-bot-api', '~> 1.19'
 # 環境変数を管理するgem
 gem 'dotenv-rails'
 
-
+#定期実行 21.05.05
+gem 'whenever'
 
 # JS用--dotenv-railsがあれば不要
 gem 'dotenv'

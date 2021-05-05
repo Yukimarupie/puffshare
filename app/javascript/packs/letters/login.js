@@ -3,10 +3,10 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
+  console.log(process.env.LIFF_ID);
   // 他のメソッドを実行できるよう初期化
   liff.init({
-    liffId: process.env.LIFF_ID
+    liffId: '1655861824-xLoVRAkl'
   })
     // ログイン処理
     .then(() => {
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         method: 'POST',
         body: body //ここで格納してRailsのusersコントローラに投げる
       });
-      console.log(request);
+      // console.log(request);
       // liff.getIDToken()で取得したIDTokenの情報をfetchメソッドを使ってRailsに渡す
       fetch(request)
         .then(response => response.json())
