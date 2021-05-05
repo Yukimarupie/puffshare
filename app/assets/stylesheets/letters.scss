@@ -28,6 +28,12 @@ th {
 	background: #fefcf9;
 }
 
-#-js-user-icon {
-	border-radius: 50%;
+#user_data {
+	display: flex;
+	
+	img {
+		border-radius: 50%;
+		width: 10%;
+		height: 10%;
+	}
 }

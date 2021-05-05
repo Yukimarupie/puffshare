@@ -11,6 +11,7 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
   build-essential \
   nodejs \
   yarn && \
+  yarn add dotenv && \
   apt-get clean && \
   rm --recursive --force /var/lib/apt/lists/*
 

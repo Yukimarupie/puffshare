@@ -57,7 +57,10 @@ gem 'line-bot-api', '~> 1.19'
 
 # 環境変数を管理するgem
 gem 'dotenv-rails'
-# JS用
+
+
+
+# JS用--dotenv-railsがあれば不要
 gem 'dotenv'
 
 # liff appを管理するgem
