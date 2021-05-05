@@ -61,7 +61,7 @@ gem 'dotenv-rails'
 
 
 # JS用--dotenv-railsがあれば不要
-# gem 'dotenv'
+gem 'dotenv'
 
 # liff appを管理するgem
 # gem 'liff_selector' 
