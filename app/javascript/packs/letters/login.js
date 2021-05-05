@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
         method: 'POST',
         body: body //ここで格納してRailsのusersコントローラに投げる
       });
-      console.log(request);
+      // console.log(request);
       // liff.getIDToken()で取得したIDTokenの情報をfetchメソッドを使ってRailsに渡す
       fetch(request)
         .then(response => response.json())
