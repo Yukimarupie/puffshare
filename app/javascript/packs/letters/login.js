@@ -3,10 +3,10 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   // const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
+  console.log(process.env.LIFF_ID);
   // 他のメソッドを実行できるよう初期化
   liff.init({
-    liffId: process.env.LIFF_ID
+    liffId: '1655861824-xLoVRAkl'
   })
     // ログイン処理
     .then(() => {
