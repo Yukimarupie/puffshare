@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // console.log(process.env.LIFF_ID);
   // 他のメソッドを実行できるよう初期化
   liff.init({
-    liffId: '1655861824-xLoVRAkl'
+    liffId: process.env.LIFF_ID
   })
     // ログイン処理
     .then(() => {
