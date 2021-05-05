@@ -203,6 +203,7 @@ DEPENDENCIES
   binding_of_caller
   bootsnap (>= 1.4.4)
   byebug
+  dotenv
   dotenv-rails
   jbuilder (~> 2.7)
   line-bot-api (~> 1.19)
