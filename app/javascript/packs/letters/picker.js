@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!liff.isLoggedIn()) {
       liff.login();
     }
-    document.getElementById('send').addEventListener('click', send);
+    // document.getElementById('send').addEventListener('click', send);
   }).catch((err) => {
     console.log(err.code, err.message);
   })
@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
               DomImg[0].src = `${icon}`; //クラスで取得する際は、引数をつけてインデックスを指定してあげて入れ込む
             })
         })
-
-    })
+      document.getElementById('send').addEventListener('click', send);
+    });
 
   function send() {
     liff.shareTargetPicker([{
