@@ -1,3 +1,8 @@
+<section id="user_data">
+  <p id="-js-user-name"></p>
+  <img src="" alt="ユーザーアイコン画像" class="-js-user-icon user_icon">
+</section>
+
 <h1>indexページ</h1>
 
 <%= link_to 'お手紙を書く', new_letter_path, class: 'btn' %>
@@ -27,4 +32,4 @@
 
 
   
-<%= javascript_pack_tag 'notletters'  %>
+<%= javascript_pack_tag 'letters/login' %>
