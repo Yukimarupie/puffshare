@@ -1,5 +1,3 @@
-// import liff from '@line/liff';
-
 document.addEventListener('DOMContentLoaded', () => {
 
   // const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
