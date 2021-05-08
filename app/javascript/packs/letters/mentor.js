@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       alert(liff);
     })
-  document.getElementById('send').addEventListener('click', send);
+  document.getElementById('send').addEventListener('click', send());
   function send() {
     alert(liff);
     liff.shareTargetPicker([{
