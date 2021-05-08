@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         // console.log(request);
         // liff.getIDToken()で取得したIDTokenの情報をfetchメソッドを使ってRailsに渡す
+        alert(body);
         fetch(request)
           .then(response => response.json())
           .then(data => {
@@ -47,8 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
               })
           })
       }
-      document.getElementById('send').addEventListener('click', send);
+      alert(liff);
     })
+  document.getElementById('send').addEventListener('click', send);
   function send() {
     liff.shareTargetPicker([{
       'type': 'text',
