@@ -47,5 +47,18 @@ document.addEventListener('DOMContentLoaded', () => {
               })
           })
       }
+      document.getElementById('send').addEventListener('click', send);
     })
+  function send() {
+    console.log('send');
+    console.log(liff);
+    liff.shareTargetPicker([{
+      'type': 'text',
+      'text': 'シェアターゲットピッカーを使って送信しています！動け〜！！！'
+    }]).then(
+      document.getElementById('success').innerText = 'Launched Share Target Picker'
+    ).catch((error) => {
+      document.getElementById('error').innerText = 'Error from Share Target Picker: ' + error;
+    })
+  }
 })
