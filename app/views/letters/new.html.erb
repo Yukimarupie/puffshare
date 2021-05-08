@@ -3,14 +3,14 @@
   <img src="/assets/svg/member_icn.svg" alt="ユーザーアイコン画像" class="-js-user-icon user_icon">
 </section>
 
-1c022c8だよ
+1c022c8だよq
 <h1>Letters#new</h1>
 
 
 ここで手紙を描ける様になります
 <br>
 
-<%= form_with model: @letter, local: true do |f| %>
+<%= form_with model: @letter, id: 'form', local: true do |f| %>
   <%= f.text_field :send_by, placeholder: "送信元" %>
   <%= f.text_field :send_to, placeholder: "送信先" %>
   <%= f.select :api_status, [["送信中", "sending"], ["送信成功", "success"], ["送信失敗", "failure"]] ,class:"form-control" %>
