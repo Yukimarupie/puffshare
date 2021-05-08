@@ -55,14 +55,14 @@ document.addEventListener('DOMContentLoaded', () => {
   //   alert(liff);
   //   alert('これはmessageSendの中身だよ');
   // }
-  liff.shareTargetPicker([{
-    'type': 'text',
-    'text': 'シェアターゲットピッカーを使って送信しています！動け〜！！！'
-  }]).then(
-    document.getElementById('success').innerText = 'Launched Share Target Picker'
-  ).catch((error) => {
-    document.getElementById('error').innerText = 'Error from Share Target Picker: ' + error;
-  })
+  if (liff.isApiAvailable('shareTargetPicker')) {
+    liff.shareTargetPicker([
+      {
+        'type': 'text',
+        'text': 'Hello, World!'
+      }
+    ])
+  }
 
   // document.getElementById('send').addEventListener('click', messageSend);
 
