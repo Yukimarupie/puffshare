@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  function send() {
+  function send(liff) {
+    console.log(liff);
     liff.shareTargetPicker([{
       'type': 'text',
       'text': 'シェアターゲットピッカーを使って送信しています！動け〜！！！'
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         // console.log(request);
         // liff.getIDToken()で取得したIDTokenの情報をfetchメソッドを使ってRailsに渡す
-        alert(body);
+        alert(request);
         fetch(request)
           .then(response => response.json())
           .then(data => {
@@ -60,5 +61,5 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       alert(liff);
     })
-  document.getElementById('send').addEventListener('click', send);
+  document.getElementById('send').addEventListener('click', send(liff));
 })
