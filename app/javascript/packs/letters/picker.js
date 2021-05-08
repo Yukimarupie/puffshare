@@ -51,6 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
   function send() {
+    console.log('send');
+    console.log(liff);
     liff.shareTargetPicker([{
       'type': 'text',
       'text': 'シェアターゲットピッカーを使って送信しています！動け〜！！！'
