@@ -45,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
           })
       }
     })
-  document.getElementById('send').addEventListener('click', messageSend);
   function messageSend() {
     alert(liff);
     alert('これはmessageSendの中身だよ');
@@ -58,4 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('error').innerText = 'Error from Share Target Picker: ' + error;
     })
   }
+  document.getElementById('send').addEventListener('click', messageSend);
+
 })
