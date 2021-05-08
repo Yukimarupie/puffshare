@@ -1,4 +1,14 @@
 document.addEventListener('DOMContentLoaded', () => {
+  function send() {
+    liff.shareTargetPicker([{
+      'type': 'text',
+      'text': 'シェアターゲットピッカーを使って送信しています！動け〜！！！'
+    }]).then(
+      document.getElementById('success').innerText = 'Launched Share Target Picker'
+    ).catch((error) => {
+      document.getElementById('error').innerText = 'Error from Share Target Picker: ' + error;
+    })
+  }
 
   // const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
   // console.log(process.env.LIFF_ID);
@@ -51,14 +61,4 @@ document.addEventListener('DOMContentLoaded', () => {
       alert(liff);
     })
   document.getElementById('send').addEventListener('click', send);
-  function send() {
-    liff.shareTargetPicker([{
-      'type': 'text',
-      'text': 'シェアターゲットピッカーを使って送信しています！動け〜！！！'
-    }]).then(
-      document.getElementById('success').innerText = 'Launched Share Target Picker'
-    ).catch((error) => {
-      document.getElementById('error').innerText = 'Error from Share Target Picker: ' + error;
-    })
-  }
 })
