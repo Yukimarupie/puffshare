@@ -49,6 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
     liff.init({
       liffId: '1655861824-xLoVRAkl'
     });
+    if (!liff.isLoggedIn()) {
+      liff.login();
+    }
     alert(liff);
     alert('これはmessageSendの中身だよ');
     liff.shareTargetPicker([{
