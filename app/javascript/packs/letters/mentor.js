@@ -45,24 +45,25 @@ document.addEventListener('DOMContentLoaded', () => {
           })
       }
     })
-  function messageSend() {
-    liff.init({
-      liffId: '1655861824-xLoVRAkl'
-    });
-    if (!liff.isLoggedIn()) {
-      liff.login();
-    }
-    alert(liff);
-    alert('これはmessageSendの中身だよ');
-    liff.shareTargetPicker([{
-      'type': 'text',
-      'text': 'シェアターゲットピッカーを使って送信しています！動け〜！！！'
-    }]).then(
-      document.getElementById('success').innerText = 'Launched Share Target Picker'
-    ).catch((error) => {
-      document.getElementById('error').innerText = 'Error from Share Target Picker: ' + error;
-    })
-  }
-  document.getElementById('send').addEventListener('click', messageSend);
+  // function messageSend() {
+  //   liff.init({
+  //     liffId: '1655861824-xLoVRAkl'
+  //   });
+  //   if (!liff.isLoggedIn()) {
+  //     liff.login();
+  //   }
+  //   alert(liff);
+  //   alert('これはmessageSendの中身だよ');
+  // }
+  liff.shareTargetPicker([{
+    'type': 'text',
+    'text': 'シェアターゲットピッカーを使って送信しています！動け〜！！！'
+  }]).then(
+    document.getElementById('success').innerText = 'Launched Share Target Picker'
+  ).catch((error) => {
+    document.getElementById('error').innerText = 'Error from Share Target Picker: ' + error;
+  })
+
+  // document.getElementById('send').addEventListener('click', messageSend);
 
 })
