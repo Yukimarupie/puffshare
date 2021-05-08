@@ -46,6 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     })
   function messageSend() {
+    liff.init({
+      liffId: '1655861824-xLoVRAkl'
+    });
     alert(liff);
     alert('これはmessageSendの中身だよ');
     liff.shareTargetPicker([{
