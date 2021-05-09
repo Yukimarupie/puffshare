@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   // 他のメソッドを実行できるよう初期化
   liff.init({
-    liffId: process.env.LIFF_ID
+    liffId: '1655861824-xLoVRAkl'
   })
     // ログイン処理
     .then(() => {
@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
           .then(response => response.json())
           .then(data => {
             console.log(data)
-
             //プロフィール情報を取得し、HTMLに投げる為の処理
             liff.getProfile()
               .then(profile => {
@@ -57,12 +56,12 @@ document.addEventListener('DOMContentLoaded', () => {
           "template": {
             "thumbnailImageUrl": "https://user-images.githubusercontent.com/64563988/117566498-d6115880-b0f1-11eb-8fa2-236d6f05c6ae.png",
             "type": "buttons",
-            "title": "お手紙が届きました！",
+            "title": "幸せの青い鳥からお手紙が届きました！",
             "text": "早速読んでみよう〜",
             "actions": [
               {
                 "type": "uri",
-                "label": "ここをクリック👆",
+                "label": "ここをクリックしてね☺︎",
                 "uri": redirectUrl
               }
             ]
