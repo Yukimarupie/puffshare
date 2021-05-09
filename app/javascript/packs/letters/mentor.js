@@ -44,66 +44,72 @@ document.addEventListener('DOMContentLoaded', () => {
               })
           })
       }
-    })
-  // function messageSend() {
-  //   liff.init({
-  //     liffId: '1655861824-xLoVRAkl'
-  //   });
-  //   if (!liff.isLoggedIn()) {
-  //     liff.login();
-  //   }
-  //   alert(liff);
-  //   alert('これはmessageSendの中身だよ');
-  // }
-  // if (liff.isApiAvailable('shareTargetPicker')) {
-  //   liff.shareTargetPicker([
-  //     {
-  //       'type': 'text',
-  //       'text': 'Hello, World!'
-  //     }
-  //   ])
-  // }
 
-  const postFormElm = document.querySelector('#form')
-  postFormElm.addEventListener('ajax:success', (e) => {
-    // ここでshared target pickerを呼び出す
-    const redirect_url = `https://google.com`
-    liff.shareTargetPicker([
-      message = {
-        "type": "template",
-        "altText": "デートのおさそいが届いています",
-        "template": {
-          "thumbnailImageUrl": "https://res.cloudinary.com/dr1peiwz2/image/upload/v1613642190/girl_ymjnoj.jpg",
-          "type": "buttons",
-          "title": "デートのおさそい",
-          "text": "大好きなあなたとデートに行きたいです！",
-          "actions": [
-            {
-              "type": "uri",
-              "label": "デートの詳細はここから確認してね！",
-              "uri": redirect_url
-            }
-          ]
+    })
+  document.getElementById('send').addEventListener('click', messageSend);
+  function messageSend() {
+    //   liff.init({
+    //     liffId: '1655861824-xLoVRAkl'
+    //   });
+    //   if (!liff.isLoggedIn()) {
+    //     liff.login();
+    //   }
+    //   alert(liff);
+    //   alert('これはmessageSendの中身だよ');
+    // }
+    if (liff.isApiAvailable('shareTargetPicker')) {
+      liff.shareTargetPicker([
+        {
+          'type': 'text',
+          'text': 'Hello, World!'
         }
-      }
-    ]).then((res) => {
-      if (res) {
-        // TargetPickerが送られたら
-        liff.closeWindow();
-      } else {
-        // TargetPickerを送らずに閉じたら
-        console.log('TargetPicker was closed!')
-        liff.closeWindow();
-      }
-    })
-      .then(() => {
-        fetch('/message')
-      })
-      .catch(function (res) {
-        alert("送信に失敗しました…")
-      });
-  })
+      ])
+    }
+  }
 
-  // document.getElementById('send').addEventListener('click', messageSend);
+
+
+
+  // const postFormElm = document.querySelector('#form')
+  // postFormElm.addEventListener('ajax:success', (e) => {
+  //   // ここでshared target pickerを呼び出す
+  //   const redirect_url = `https://google.com`
+  //   liff.shareTargetPicker([
+  //     message = {
+  //       "type": "template",
+  //       "altText": "デートのおさそいが届いています",
+  //       "template": {
+  //         "thumbnailImageUrl": "https://res.cloudinary.com/dr1peiwz2/image/upload/v1613642190/girl_ymjnoj.jpg",
+  //         "type": "buttons",
+  //         "title": "デートのおさそい",
+  //         "text": "大好きなあなたとデートに行きたいです！",
+  //         "actions": [
+  //           {
+  //             "type": "uri",
+  //             "label": "デートの詳細はここから確認してね！",
+  //             "uri": redirect_url
+  //           }
+  //         ]
+  //       }
+  //     }
+  //   ]).then((res) => {
+  //     if (res) {
+  //       // TargetPickerが送られたら
+  //       liff.closeWindow();
+  //     } else {
+  //       // TargetPickerを送らずに閉じたら
+  //       console.log('TargetPicker was closed!')
+  //       liff.closeWindow();
+  //     }
+  //   })
+  //     .then(() => {
+  //       fetch('/letters')
+  //     })
+  //     .catch(function (res) {
+  //       alert("送信に失敗しました…")
+  //     });
+  // })
+
+
 
 })
