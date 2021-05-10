@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
       // console.log(request);
       // liff.getIDToken()で取得したIDTokenの情報をfetchメソッドを使ってRailsに渡す
       fetch(request)
-        .then(response => response.json())
+        .then(response => response.json()) //これはfetchの鉄板文。このJSON変換？処理を挟まないと、 Promiseで返ってきたresponseの中身がわからないが、これのおかげで何が入ってるか見れる。JSONは直接JSで使えないため、JSON.perse();する必要があるが、このresponse.json()では自動でパースされている。
         .then(data => {
           console.log(data)
 
