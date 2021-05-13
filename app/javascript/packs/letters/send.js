@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       else {
         const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
         const idToken = liff.getIDToken()
-        const bodyInIdToken = `idToken=${idToken}` //ここでbodyにidTokenを入れ込んで
+        const body = `idToken=${idToken}` //ここでbodyにidTokenを入れ込んで
         // console.log(body)
         const request = new Request('/users', {
           headers: {
@@ -21,12 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
             'X-CSRF-Token': token
           },
           method: 'POST',
-          body: bodyInIdToken //ここで格納してRailsのusersコントローラに投げる
+          body: body //ここで格納してRailsのusersコントローラに投げる
         });
         // console.log(request);
         // liff.getIDToken()で取得したIDTokenの情報をfetchメソッドを使ってRailsに渡す
         fetch(request)
-          .then(response => response.json())//これはfetchの鉄板文。このJSON変換？処理を挟まないと、 Promiseで返ってきたresponseの中身がわからないが、これのおかげで何が入ってるか見れる。JSONは直接JSで使えないため、JSON.parse();する必要があるが、このresponse.json()では自動でパースできる
+          .then(response => response.json())//これはfetchの鉄板文。このJSON変換？処理を挟まないと、 Promiseで返ってきたresponseの中身がわからないが、これのおかげで何が入ってるか見れる。JSONは直接JSで使えないため、JSON.parse();する必要があるが、このresponse.json()で自動パースできる
           .then(data => {
             console.log(data)
             //プロフィール情報を取得し、HTMLに投げる為の処理
@@ -50,9 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const DomFormContents = document.querySelector('#form');
   DomFormContents.addEventListener('ajax:success', (event) => {
-    console.log(event);
+    // console.log(event);
     // ここでshared target pickerを呼び出す
-    const redirect_url = 'https://google.comhttps://liff.line.me/1655861824-xLoVRAkl/login?token=${event.detail[0].token}'
+    // const redirectUrl = 'https://liff.line.me/1655861824-xLoVRAkl/login?token=${event.detail[0].token}'
+    const redirectUrl = 'https://google.com'
     if (liff.isApiAvailable('shareTargetPicker')) {
       liff.shareTargetPicker([
         message = {
@@ -72,15 +73,16 @@ document.addEventListener('DOMContentLoaded', () => {
             ]
           }
         }
-      ]).then(() => {
-        liff.closeWindow();
-      })
-        .then(() => {
-          alert('お手紙が送信できました！')
-        })
-        .catch(() => {
-          alert("送信に失敗しました…")
-        });
+      ])
+      // .then(() => {
+      //   liff.closeWindow();
+      // })
+      //   .then(() => {
+      //     alert('お手紙が送信できました！')
+      //   })
+      //   .catch(() => {
+      //     alert("送信に失敗しました…")
+      //   });
     }
   })
 
