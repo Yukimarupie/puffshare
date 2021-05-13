@@ -1,32 +1,32 @@
-<section id="user_data">
-  <p id="-js-user-name"></p>
-  <img src="/assets/svg/member_icn.svg" alt="ユーザーアイコン画像" class="-js-user-icon user_icon">
-</section>
+<div class="container">
+  <header>
+    <%= link_to '＜', letters_path, class: 'back_btn' %>
+    <section id="user_data">
+      <p id="-js-user-name"></p>
+      <img src="/assets/svg/member_icn.svg" alt="ユーザーアイコン画像" class="-js-user-icon user_icon">
+    </section>
+  </header>
 
-コミットナンバーe7247ddの、次のデプロイです。
-Date me開発者の寺倉さんのコードをコピペしてみました。
-iPhoneだと、
-      .catch(function (res) {
-        alert("送信に失敗しました…")
-      });
-      に入ってしまいます。
-<h1>Letters#new</h1>
+  05/13 send 
+  'use strict'をOFFにしました
+  <h1>Letters#new</h1>
 
 
-ここで手紙を描ける様になります
-<br>
+  ここで手紙を描ける様になります
+  <br>
 
-<%= form_with model: @letter, id: 'form', local: false do |f| %>
-  <%= f.text_field :send_by, placeholder: "送信元" %>
-  <%= f.text_field :send_to, placeholder: "送信先" %>
-  <%= f.select :api_status, [["送信中", "sending"], ["送信成功", "success"], ["送信失敗", "failure"]] ,class:"form-control" %>
+  <%= form_with model: @letter, id: 'form', local: false do |f| %>
+    <%= f.text_field :send_by, placeholder: "送信元" %>
+    <%= f.text_field :send_to, placeholder: "送信先" %>
+    <%= f.select :api_status, [["送信中", "sending"], ["送信成功", "success"], ["送信失敗", "failure"]] ,class:"form-control" %>
 
-  <%= f.text_area :description, row: 100, placeholder: "手紙をここに入力してね" %>
+    <%= f.text_area :description, row: 100, placeholder: "手紙をここに入力してね。詳しく自分の不安な気持ちや、最近楽しかったこと、相手への感謝などを書くだけで、少しだけ気持ちが楽になるよ☺︎", class: 'text_area' %>
 
-  <%= f.submit "送信する" %>
-  <button type="button" id='send'>ボタン</button>
-<% end %>
+    <%= f.submit "お手紙を送る人を選ぶ", class: "send_btn" %>
+  <% end %>
 
-<%= link_to 'メールボックスに戻る', letters_path, class: 'btn' %>
 
-<%= javascript_pack_tag 'letters/mentor' %>
+
+  <%= javascript_pack_tag 'letters/send' %>
+
+</div>

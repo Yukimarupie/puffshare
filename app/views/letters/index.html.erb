@@ -15,23 +15,11 @@
 <p></p>
 <p></p>
 
-<table>
-	<tbody>
-		<tr>
-			<th>受信内容</th>
-			<th>送ってくれた人</th>
-      <th>受信日</th>
-		</tr>
     <% @letters.each do |letter| %>
-		<tr>
-			<td><%= link_to letter.description, letter_path(letter) %></td>
-			<td><%= letter.send_by  %></td>
-      <td><%= letter.created_at  %></td>
-		</tr>
+			<%= link_to letter.description, letter_path(letter) %>
+			<%= letter.send_by  %>
+      <%= letter.created_at  %>
     <% end %>
-	</tbody>
-</table>
-
 
   
 <%= javascript_pack_tag 'letters/login' %>
