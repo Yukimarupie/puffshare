@@ -62,7 +62,7 @@ th {
 	background-color: $brown;
 	border-radius: 50px;
 	border: 0;
-	padding:8px 0 10px;
+	padding: 8px 16px;
 	font-size: 1em;
 	color: $base;
 	position: fixed;
@@ -76,4 +76,14 @@ th {
 
 @keyframes scale {
   50% { transform: scale(1.1); }
+}
+
+//index
+.new_btn {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: $brown;
+	background: url(../images/svg/new_btn@2x.svg) no-repeat;
 }
