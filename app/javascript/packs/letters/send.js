@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
   // 他のメソッドを実行できるよう初期化
@@ -48,43 +48,84 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     })
 
-  const DomFormContents = document.querySelector('#form');
-  DomFormContents.addEventListener('ajax:success', (event) => {
-    // console.log(event);
+  const postFormElm = document.querySelector('#form')
+  postFormElm.addEventListener('ajax:success', (event) => {
     // ここでshared target pickerを呼び出す
+    const redirectUrl = `https://google.com`
     // const redirectUrl = 'https://liff.line.me/1655861824-xLoVRAkl/login?token=${event.detail[0].token}'
-    const redirectUrl = 'https://google.com'
-    if (liff.isApiAvailable('shareTargetPicker')) {
-      liff.shareTargetPicker([
-        message = {
-          "type": "template",
-          "altText": 'あなた宛のお手紙が届いてます！',
-          "template": {
-            "thumbnailImageUrl": "https://user-images.githubusercontent.com/64563988/117742992-dff5a180-b240-11eb-894c-b94c7c2b2d47.png",
-            "type": "buttons",
-            "title": "幸せの青い鳥がお手紙を届けてくれたよ！",
-            "text": "さっそく読んでみよう〜",
-            "actions": [
-              {
-                "type": "uri",
-                "label": "ここをクリックしてね☺︎",
-                "uri": redirectUrl
-              }
-            ]
-          }
+    liff.shareTargetPicker([
+      message = {
+        "type": "template",
+        "altText": "あなた宛にお手紙が届いています",
+        "template": {
+          "thumbnailImageUrl": "https://user-images.githubusercontent.com/64563988/117742992-dff5a180-b240-11eb-894c-b94c7c2b2d47.png",
+          "type": "buttons",
+          "title": "幸せの青い鳥がお手紙を届けてくれたよ！",
+          "text": "さっそく読んでみよう〜",
+          "actions": [
+            {
+              "type": "uri",
+              "label": "ここをクリック☺︎👆",
+              "uri": redirectUrl
+            }
+          ]
         }
-      ])
-      // .then(() => {
-      //   liff.closeWindow();
-      // })
-      //   .then(() => {
-      //     alert('お手紙が送信できました！')
-      //   })
-      //   .catch(() => {
-      //     alert("送信に失敗しました…")
-      //   });
-    }
+      }
+    ]).then((response) => {
+      if (response) {
+        // TargetPickerが送られたら
+        liff.closeWindow();
+      } else {
+        // TargetPickerを送らずに閉じたら
+        console.log('TargetPicker was closed!')
+        liff.closeWindow();
+      }
+    })
+      .then(() => {
+        fetch('/letters')
+      })
+      .catch(function (res) {
+        alert("送信に失敗しました…")
+      });
   })
+
+  // const DomFormContents = document.querySelector('#form');
+  // DomFormContents.addEventListener('ajax:success', (event) => {
+  //   // console.log(event);
+  //   // ここでshared target pickerを呼び出す
+  //   // const redirectUrl = 'https://liff.line.me/1655861824-xLoVRAkl/login?token=${event.detail[0].token}'
+  //   const redirectUrl = 'https://google.com'
+  //   if (liff.isApiAvailable('shareTargetPicker')) {
+  //     liff.shareTargetPicker([
+  //       message = {
+  //         "type": "template",
+  //         "altText": 'あなた宛のお手紙が届いてます！',
+  //         "template": {
+  //           "thumbnailImageUrl": "https://user-images.githubusercontent.com/64563988/117742992-dff5a180-b240-11eb-894c-b94c7c2b2d47.png",
+  //           "type": "buttons",
+  //           "title": "幸せの青い鳥がお手紙を届けてくれたよ！",
+  //           "text": "さっそく読んでみよう〜",
+  //           "actions": [
+  //             {
+  //               "type": "uri",
+  //               "label": "ここをクリックしてね☺︎",
+  //               "uri": redirectUrl
+  //             }
+  //           ]
+  //         }
+  //       }
+  //     ])
+  //     // .then(() => {
+  //     //   liff.closeWindow();
+  //     // })
+  //     //   .then(() => {
+  //     //     alert('お手紙が送信できました！')
+  //     //   })
+  //     //   .catch(() => {
+  //     //     alert("送信に失敗しました…")
+  //     //   });
+  //   }
+  // })
 
 
 
