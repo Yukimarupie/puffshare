@@ -1,12 +1,17 @@
 // Place all the styles related to the Letters controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-$base: #F2EFEC;
+$base: #FFFCF4;
 $brown: #887E79;
 
 body {
   background-color: $base;
-  font-family: "ヒラギノ丸ゴシック", sans-serif;
+	font-family: "ヒラギノ丸ゴシック", sans-serif;
+}
+
+.container {
+	width: 92vw;
+	margin: 0 auto;
 }
 
 table , td, th {
@@ -28,12 +33,47 @@ th {
 	background: #fefcf9;
 }
 
-#user_data {
+#user_data {	
 	display: flex;
-	
 	img {
 		border-radius: 50%;
 		width: 10%;
 		height: 10%;
 	}
+}
+
+// new
+.back_btn {
+	text-decoration: none;
+	color: $brown;
+}
+
+.text_area {
+	height: 100vh;
+	background-color: $base;
+	border: 0;
+	width: 100vw;
+	padding: 0 4vw;
+}
+
+.send_btn {
+	display: inline-block;
+	width: 40vw;
+	background-color: $brown;
+	border-radius: 50px;
+	border: 0;
+	padding:8px 0 10px;
+	font-size: 1em;
+	color: $base;
+	position: fixed;
+	right: 2vw;
+	bottom: 2vw;
+
+	&:hover {
+		animation: scale .4s ease;
+	}
+}
+
+@keyframes scale {
+  50% { transform: scale(1.1); }
 }

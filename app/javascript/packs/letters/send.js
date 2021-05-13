@@ -78,7 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
       } else {
         // TargetPickerを送らずに閉じたら
         console.log('TargetPicker was closed!')
-        liff.closeWindow();
       }
     })
       .then(() => {
