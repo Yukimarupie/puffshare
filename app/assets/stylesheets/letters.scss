@@ -1,16 +1,21 @@
 // Place all the styles related to the Letters controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-$base: #FFFCF4;
+$base: #F2EFEC;
 $brown: #887E79;
+$white: #FFFCF4;
 
 body {
   background-color: $base;
 	font-family: "ヒラギノ丸ゴシック", sans-serif;
 }
 
+// css remedy
+*,::after,::before{box-sizing:border-box}html{line-sizing:normal}body{margin:0}h1{font-size:2rem}h2{font-size:1.5rem}h3{font-size:1.17rem}h4{font-size:1rem}h5{font-size:.83rem}h6{font-size:.67rem}h1{margin:.67em 0}pre{white-space:pre-wrap}hr{border-style:solid;border-width:1px 0 0;color:inherit;height:0;overflow:visible}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle;max-width:100%}canvas,img,svg,video{height:auto}audio{width:100%}img{border-style:none}svg{overflow:hidden}article,aside,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}
+
+
 // iOSデフォルトの設定をOFFにするCSS 参考: https://bityl.co/6qe1 @Qiita
-input,
+a,input,
 button,
 textarea,
 select {
@@ -70,9 +75,12 @@ input[type="week"]::-webkit-clear-button {
 }
 
 
+html {
+	color: $brown;
+}
 
 .container {
-	width: 90vw;
+	width: 96vw;
 	margin: 0 auto;
 }
 
@@ -115,7 +123,7 @@ th {
 	background-color: $base;
 	border: 0;
 	outline: none; //選択したときのデフォルトの枠を不適用に。
-	width: 80vw;
+	width: 90vw;
 	margin: 0 auto;
 	padding: 0 4vw;
 	font-size: 0.9em;	
@@ -134,6 +142,7 @@ th {
 	position: fixed;
 	right: 8vw;
 	bottom: 8vw;
+  text-decoration: none;
 
 	&:hover {
 		animation: scale .4s ease;
@@ -146,11 +155,50 @@ th {
 
 //index
 .new_btn {
-	display: inline-block;
-	-webkit-appearance: none; //iphoneのデフォルトボタンCSSをオフに。
+	display: fixed;
+	position: relative;
+	text-decoration: none;
 	width: 50px;
 	height: 50px;
 	border-radius: 50%;
 	background-color: $brown;
-	background: url(../images/svg/new_btn@2x.svg) no-repeat;
+	text-decoration: none;
+	padding: 2px;
+	display: -webkit-box;
+  display: -ms-flexbox;
+	bottom: 4vw;
+	right: 4vw;
+	z-index: 10;
+	// background: url(../images/svg/new_btn.svg) no-repeat center center/cover;
+
+}
+
+li {
+	padding: 0;
+}
+
+.letter_contents {
+	// width: 90vw;
+	margin: 0 5vw 5vw 5vw;
+	padding: 0.5em 0.5em 0.5em 2em;
+	font-size: 85%;
+	line-height: 1.45;
+	background: $white;
+	border-radius: 8px;
+	list-style: none;
+	text-decoration: none;
+}
+
+.letter_info {
+	list-style: none;
+
+	li {
+		position: relative;
+		display: inline-block;
+	}
+}
+
+.send_by {
+	position: absolute;
+	right: 0;
 }

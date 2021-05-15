@@ -1,3 +1,4 @@
+<div class="container">
 <section id="user_data">
   <p id="-js-user-name"></p>
   <img src=""/assets/svg/member_icn.svg alt="ユーザーアイコン画像" class="-js-user-icon user_icon">
@@ -6,20 +7,19 @@
 　<p id="success"></p>
 　<p id="error"></p>
 
-
-<%= link_to '+', new_letter_path, class: 'new_btn' %>
+<%= link_to '＋', new_letter_path, class: 'new_btn' %>
 <br>
-<p>受信ボックスが標準で表示される仕様。</p>
 <p>送信した手紙も、できれば表示される様にしたい。タブ選択で。</p>
-<p>下書き中のみ編集機能を、受信したもののみ削除機能？これはいらないかな<div class=""></div></p>
-<p></p>
-<p></p>
-
+<p>下書き中のみ編集機能を、受信したもののみ削除機能？これはいらないか</p>
     <% @letters.each do |letter| %>
-			<%= link_to letter.description, letter_path(letter) %>
-			<%= letter.send_by  %>
-      <%= letter.created_at  %>
+      <ul class="letter_info">
+        <li><%= letter.created_at.strftime("%-m月%-d日%a %Y年 %H:%M")  %></li>
+      </ul>
+      <ul class="letter_contents">
+        <li><%= link_to letter.description, letter_path(letter) %></li>
+        <li>「<%= letter.send_by  %>」さんからのお手紙</li>
+      </ul>
     <% end %>
 
-  
+</div>
 <%= javascript_pack_tag 'letters/login' %>
