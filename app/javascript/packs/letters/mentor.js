@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   const postFormElm = document.querySelector('#form')
+  // ajax:successはails-ujsのイベントハンドラ。つまりRailsの拡張イベント的な
   postFormElm.addEventListener('ajax:success', (event) => {
     // ここでshared target pickerを呼び出す
     // const redirectUrl = `https://google.com`

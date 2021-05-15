@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     })
       .then(() => {
-        fetch('/letters')
+        fetch('/send_response')
       })
       .catch(function (res) {
         alert("送信に失敗しました…")
