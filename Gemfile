@@ -61,7 +61,7 @@ gem 'dotenv-rails'
 
 # liff appを管理するgem
 # gem 'liff_selector' 
-# # JS用--dotenv-railsがあれば不要
-# gem 'dotenv'
 # #定期実行 21.05.05
 # gem 'whenever'
+# # JS用--dotenv-railsがあれば不要
+# gem 'dotenv'

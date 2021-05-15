@@ -1,24 +1,43 @@
-<section id="user_data">
-  <p id="-js-user-name"></p>
-  <img src="" alt="ユーザーアイコン画像" class="-js-user-icon user_icon">
-</section>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0">
+  <title>手紙作成画面</title>
+</head>
+<body>
+  
+</body>
+</html>
 
-<h1>Letters#new</h1>
+<div class="container">
+  <header>
+    <%= link_to '＜', letters_path, class: 'back_btn' %>
+    <section id="user_data">
+      <p id="-js-user-name"></p>
+      <img src="/assets/svg/member_icn.svg" alt="ユーザーアイコン画像" class="-js-user-icon user_icon">
+    </section>
+  </header>
+
+5/15 CSSを修正しました
+  <h1>Letters#new</h1>
 
 
-ここで手紙を描ける様になります
-<br>
+  ここで手紙を描ける様になります
+  <br>
 
-<%= form_with model: @letter, local: true do |f| %>
-  <%= f.text_field :send_by, placeholder: "送信元" %>
-  <%= f.text_field :send_to, placeholder: "送信先" %>
-  <%= f.select :api_status, [["送信中", "sending"], ["送信成功", "success"], ["送信失敗", "failure"]] ,class:"form-control" %>
+  <%= form_with model: @letter, id: 'form', local: false do |f| %>
+    <%= f.text_field :send_by, placeholder: "送信元" %>
+    <%= f.text_field :send_to, placeholder: "送信先" %>
+    <%= f.select :api_status, [["送信中", "sending"], ["送信成功", "success"], ["送信失敗", "failure"]] ,class:"form-control" %>
 
-  <%= f.text_area :description, row: 100, placeholder: "手紙をここに入力してね" %>
+    <%= f.text_area :description, row: 100, placeholder: "手紙をここに入力してね。詳しく自分の不安な気持ちや、最近楽しかったこと、相手への感謝などを書くだけで、少しだけ気持ちが楽になるよ☺︎", class: 'text_area' %>
 
-  <%= f.submit "送信する", id: 'send' %>
-<% end %>
+    <%= f.submit "お手紙を送る人を選ぶ", class: "send_btn" %>
+  <% end %>
 
-<%= link_to 'メールボックスに戻る', letters_path, class: 'btn' %>
 
-<%= javascript_pack_tag 'letters/login' %>
+
+  <%= javascript_pack_tag 'letters/send' %>
+
+</div>

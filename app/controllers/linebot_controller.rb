@@ -12,7 +12,6 @@ class LinebotController < ApplicationController
         unless client.validate_signature(body, signature)
         return head :bad_request
         end
-    
 
         events = client.parse_events_from(body)
     
@@ -74,7 +73,6 @@ class LinebotController < ApplicationController
                         }
                       )
                     end
-
                 end
             end
         end
@@ -92,5 +90,17 @@ class LinebotController < ApplicationController
         }
     end
 
+    def send_response
+      message = {
+        "type": "text",
+        "text": "お手紙が送信できました！"
+      }
+      client = Line::Bot::Client.new { |config|
+      config.channel_secret = ENV['LINE_CHANNEL_SECRET']
+      config.channel_token = ENV['LINE_CHANNEL_TOKEN']
+      }
+      response = client.push_message(User.find(session[:user_id]).line_user_id, message)
+      p response
+    end
     
 end
