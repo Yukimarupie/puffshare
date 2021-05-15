@@ -9,8 +9,70 @@ body {
 	font-family: "ヒラギノ丸ゴシック", sans-serif;
 }
 
+// iOSデフォルトの設定をOFFにするCSS 参考: https://bityl.co/6qe1 @Qiita
+input,
+button,
+textarea,
+select {
+  /* デフォルトスタイルをリセット */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  /* font-familyを継承しないので、継承させる */
+  font-family: inherit;
+
+  /* iOSの角丸をリセット */
+  border-radius: 0;
+
+  /* box-size */
+  box-sizing: border-box;
+
+  /* 文字色を親から継承 */
+  color: inherit;
+}
+
+/* スピンボタン非表示 chrome,safari */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button,
+input[type="month"]::-webkit-outer-spin-button,
+input[type="month"]::-webkit-inner-spin-button,
+input[type="datetime-local"]::-webkit-outer-spin-button,
+input[type="datetime-local"]::-webkit-inner-spin-button,
+input[type="week"]::-webkit-outer-spin-button,
+input[type="week"]::-webkit-inner-spin-button,
+input[type="time"]::-webkit-outer-spin-button,
+input[type="time"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-outer-spin-button,
+input[type="date"]::-webkit-inner-spin-button {
+  /*-webkit-appearance: none;
+  margin: 0;*/
+  display: none;
+}
+
+/* スピンボタン非表示(firefox) */
+input[type="number"],
+input[type="month"],
+input[type="datetime-local"],
+input[type="week"],
+input[type="time"],
+input[type="date"] {
+  -moz-appearance: textfield;
+}
+
+/* クリアボタン非表示 */
+input[type="date"]::-webkit-clear-button,
+input[type="month"]::-webkit-clear-button,
+input[type="datetime-local"]::-webkit-clear-button,
+input[type="time"]::-webkit-clear-button,
+input[type="week"]::-webkit-clear-button {
+  -webkit-appearance: none;
+}
+
+
+
 .container {
-	width: 92vw;
+	width: 90vw;
 	margin: 0 auto;
 }
 
@@ -52,22 +114,26 @@ th {
 	height: 100vh;
 	background-color: $base;
 	border: 0;
-	width: 100vw;
+	outline: none; //選択したときのデフォルトの枠を不適用に。
+	width: 80vw;
+	margin: 0 auto;
 	padding: 0 4vw;
+	font-size: 0.9em;	
 }
 
 .send_btn {
 	display: inline-block;
-	width: 40vw;
+	width: 50vw;
 	background-color: $brown;
 	border-radius: 50px;
 	border: 0;
-	padding:8px 0 10px;
-	font-size: 1em;
+	-webkit-appearance: none; //iphoneのデフォルトボタンCSSをオフに。
+	padding: 8px 16px;
+	font-size: 0.8em;
 	color: $base;
 	position: fixed;
-	right: 2vw;
-	bottom: 2vw;
+	right: 8vw;
+	bottom: 8vw;
 
 	&:hover {
 		animation: scale .4s ease;
@@ -76,4 +142,15 @@ th {
 
 @keyframes scale {
   50% { transform: scale(1.1); }
+}
+
+//index
+.new_btn {
+	display: inline-block;
+	-webkit-appearance: none; //iphoneのデフォルトボタンCSSをオフに。
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background-color: $brown;
+	background: url(../images/svg/new_btn@2x.svg) no-repeat;
 }
