@@ -34,5 +34,9 @@ module App
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    #21/05/15 yuki
+    config.time_zone = "Tokyo"
+    config.active_record.default_timezone = :local
   end
 end
